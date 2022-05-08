@@ -1,1 +1,15 @@
+bin
+jar
+libros
+prueba
+out 
+*.bak
+*.class
+~$*.pptx
+.~*.pptx
+.settings
+build
+.classpath
+.project
 .DS_Store
+
