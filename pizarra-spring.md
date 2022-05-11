@@ -20,7 +20,6 @@ Objetivos del día
 - Reconocer cómo saber las versiones de las librerías instaladas en Spring 
 - Realizar pruebas simples de un proyecto web utilizando MockMVC 
 - Reconocer cómo agregar más dependencias de Spring al proyecto 
-- Reconocer la utilidad del proyecto Lombok 
 
 
 ### Sesión - 1 de 23 - Lunes 9 de Mayo (20:00 a 21:30hrs)

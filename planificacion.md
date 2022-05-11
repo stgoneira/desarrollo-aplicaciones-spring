@@ -7,7 +7,18 @@
 
 ## SESIONES 
 
-### Sesión - 1 de 23 - Lunes 9 de Mayo (20:00 a 21:30hrs)
+- Procesar Formularios con Spring 
+- Validar formularios web usando Hibernate Validator (JSR 380) 
+- Agregar dependencias a proyecto Spring 
+- Identificar las versiones de las librerías del proyecto 
+- Reconocer la vinculación e importancia de la documentación primaria y las versiones 
+- Reconocer el rol de Spring en la integración de distintos proyectos 
+- Ejecutar Maven desde Spring Tool Suite 
+- Ejecutar Maven desde un entorno tipo Terminal 
+- Reconoce las tareas que se ejecutan con Maven (clean, test, install, package) 
+- Generar empaquetado JAR del proyecto Spring 
+- Ejecutar fuera de Spring Tool Suite un proyecto web 
+- Reconocer la utilidad del proyecto Lombok 
 
 #### Objetivos 
 
