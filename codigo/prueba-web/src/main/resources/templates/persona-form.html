@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Form.</h1>
+	<form action="#" th:action="@{/persona}" th:object="${persona}" method="post">		
+		<p>
+			Id: <input type="number" th:field="*{id}" />
+			<span style="color: red;" th:if="${#fields.hasErrors('id')}" th:errors="*{id}" />
+		</p>
+		<p>
+			Nombre: <input type="text" th:field="*{nombre}" />
+			<span style="color: red;" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" />
+		</p>
+		<button type="submit">Guardar</button>
+	</form>
+</body>
+</html>
