@@ -2,6 +2,7 @@ package cl.aiep.spring.cft.repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class AlumnoRepositoryImp implements AlumnoRepository {
 	JdbcTemplate jdbcTemplate;
 	
 	public Alumno makeObject(ResultSet rs, int row) throws SQLException {
-		return new Alumno(rs.getInt("id"), rs.getString("nombre"));
+		return new Alumno(rs.getInt("id"), rs.getString("nombre"), rs.getObject("fecha_nacimiento", LocalDate.class));
 	}
 	
 	@Override
@@ -36,14 +37,14 @@ public class AlumnoRepositoryImp implements AlumnoRepository {
 
 	@Override
 	public void create(Alumno alumno) {
-		String sql = String.format("INSERT INTO %s(nombre) VALUES(?)", TABLA);
-		jdbcTemplate.update(sql, alumno.getNombre());
+		String sql = String.format("INSERT INTO %s(nombre, fecha_nacimiento) VALUES(?, ?)", TABLA);
+		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getFechaNacimiento());
 	}
 
 	@Override
 	public void edit(Alumno alumno) {
-		String sql = String.format("UPDATE %s SET nombre = ? WHERE id = ?", TABLA);
-		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getId());
+		String sql = String.format("UPDATE %s SET nombre = ?, fecha_nacimiento = ? WHERE id = ?", TABLA);
+		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getFechaNacimiento(), alumno.getId());
 	}
 
 	@Override

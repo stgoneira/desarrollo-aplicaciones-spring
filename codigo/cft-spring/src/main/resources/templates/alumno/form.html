@@ -12,8 +12,13 @@
 			Nombre: <input type="text" th:field="*{nombre}" />
 			<span style="color: red;" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" />
 		</p>
+		<p>
+			Fecha Nacimiento: <input type="date" th:field="*{fechaNacimiento}" />
+			<span style="color: red;" th:if="${#fields.hasErrors('fechaNacimiento')}" th:errors="*{fechaNacimiento}" />
+		</p>
 		<button type="submit">Guardar</button>
 	</form>
 
+	<a th:href="@{/}">volver al inicio</a>
 </body>
 </html>

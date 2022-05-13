@@ -14,6 +14,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
+				<th>Fecha Nacimiento</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -21,6 +22,7 @@
 			<tr th:each="alumno : ${alumnos}">
 				<td th:text="${alumno.id}" />
 				<td th:text="${alumno.nombre}" />
+				<td th:text="${alumno.fechaNacimiento}" />
 				<td>
 					<a th:href="@{/alumno/editar/{alumnoId}(alumnoId=${alumno.id})}">Editar</a>
 					<a th:href="@{/alumno/eliminar/{alumnoId}(alumnoId=${alumno.id})}">Eliminar</a>
