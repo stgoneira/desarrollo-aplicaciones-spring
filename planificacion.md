@@ -11,6 +11,9 @@
 
 #### Objetivos 
 
+
+## OBJETIVOS PLAN 
+
 1.1. Describe el rol y principales características del gestor de proyectos para la administración de un proyecto Spring 
 1.2. Utiliza un gestor de Proyectos para la creación de un proyecto web dinámico SpringBoot 
 1.3. Utiliza un gestor de un proyectos para la administración de las dependencias de un proyecto 
@@ -38,6 +41,32 @@
 5.3. Implementa un servicio REST utilizando Sprint MVC para exponer recursos y operaciones que dan solución a una problemática dada 
 5.4. Utiliza buenas prácticas y convenciones para la definición de un recurso REST que dan solución a un problema determinado 
 
+## TEMÁTICAS PLAN 
 
+- Maven 
+- Spring MVC 
+- Spring Boot 
+- Pruebas 
+- Empaquetamiento 
+- Anotaciones 
+- Beans en Spring 
+- Inyección de Dependencias 
+- Spring Boot - Spring-web 
+- JSP - ThymeLeaf 
+- Configuración de Logs en Spring MVC 
+- Configuración Datasource 
+- Capa de Vistas y Controladores 
+- Controladores Multiacción 
+- Capa de Servicios 
+- JDBC Template 
+- JPA 
+- DAO 
+- Repositorios 
+- Transacciones 
+- SpringSecurity 
+- Autenticación 
+- Roles 
+- Interoperabilidad (REST)
+- JWT Json Web Tokens 
 
 
