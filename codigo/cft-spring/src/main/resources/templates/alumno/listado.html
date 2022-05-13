@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Formulario Alumno</title>
+</head>
+<body>
+
+	<h1>Listado de Alumnos</h1>
+
+	<a th:href="@{/alumno/nuevo}">Nuevo Alumno</a>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="alumno : ${alumnos}">
+				<td th:text="${alumno.id}" />
+				<td th:text="${alumno.nombre}" />
+				<td>
+					<a th:href="@{/alumno/editar/{alumnoId}(alumnoId=${alumno.id})}">Editar</a>
+					<a th:href="@{/alumno/eliminar/{alumnoId}(alumnoId=${alumno.id})}">Eliminar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>
