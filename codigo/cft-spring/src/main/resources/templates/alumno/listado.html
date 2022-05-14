@@ -9,12 +9,14 @@
 	<h1>Listado de Alumnos</h1>
 
 	<a th:href="@{/alumno/nuevo}">Nuevo Alumno</a>
+	<a th:href="@{/}">Inicio</a>
 	<table>
 		<thead>
 			<tr>
 				<th>ID</th>
 				<th>Nombre</th>
 				<th>Fecha Nacimiento</th>
+				<th>Carrera</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -23,6 +25,7 @@
 				<td th:text="${alumno.id}" />
 				<td th:text="${alumno.nombre}" />
 				<td th:text="${alumno.fechaNacimiento}" />
+				<td th:text="${alumno.carrera.nombre}" />
 				<td>
 					<a th:href="@{/alumno/editar/{alumnoId}(alumnoId=${alumno.id})}">Editar</a>
 					<a th:href="@{/alumno/eliminar/{alumnoId}(alumnoId=${alumno.id})}">Eliminar</a>

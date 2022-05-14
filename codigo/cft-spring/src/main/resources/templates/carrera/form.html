@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Formulario Carrera</title>
+</head>
+<body>
+
+	<form th:action="@{/carrera/procesar}" th:object="${carrera}" method="post">
+		<input type="hidden" th:field="*{id}" />
+		<p>
+			Nombre: <input type="text" th:field="*{nombre}" />
+			<span style="color: red;" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" />
+		</p>
+		
+		<button type="submit">Guardar</button>
+	</form>
+
+</body>
+</html>

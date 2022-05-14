@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<title>Carreras</title>
+</head>
+<body>
+
+	<h1>Listado de Carreras</h1>
+
+	<a th:href="@{/carrera/nueva}">Nueva Carrera</a>
+	<a th:href="@{/}">Inicio</a>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="carrera : ${carreras}">
+				<td th:text="${carrera.id}" />
+				<td th:text="${carrera.nombre}" />
+				<td>
+					<a th:href="@{/carrera/editar/{carreraId}(carreraId=${carrera.id})}">Editar</a>
+					<a th:href="@{/carrera/eliminar/{carreraId}(carreraId=${carrera.id})}">Eliminar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import cl.aiep.spring.cft.modelo.Alumno;
+import cl.aiep.spring.cft.modelo.Carrera;
 
 @Repository
 public class AlumnoRepositoryImp implements AlumnoRepository {
@@ -19,8 +20,13 @@ public class AlumnoRepositoryImp implements AlumnoRepository {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	
+	@Autowired 
+	CarreraRepository carreraRepository;
+	
 	public Alumno makeObject(ResultSet rs, int row) throws SQLException {
-		return new Alumno(rs.getInt("id"), rs.getString("nombre"), rs.getObject("fecha_nacimiento", LocalDate.class));
+		int carreraId = rs.getInt("carrera_id");
+		Carrera carrera = carreraRepository.findById(carreraId);
+		return new Alumno(rs.getInt("id"), rs.getString("nombre"), rs.getObject("fecha_nacimiento", LocalDate.class), carrera);
 	}
 	
 	@Override
@@ -37,14 +43,14 @@ public class AlumnoRepositoryImp implements AlumnoRepository {
 
 	@Override
 	public void create(Alumno alumno) {
-		String sql = String.format("INSERT INTO %s(nombre, fecha_nacimiento) VALUES(?, ?)", TABLA);
-		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getFechaNacimiento());
+		String sql = String.format("INSERT INTO %s(nombre, fecha_nacimiento, carrera_id) VALUES(?, ?, ?)", TABLA);
+		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getFechaNacimiento(), alumno.getCarrera().getId());
 	}
 
 	@Override
 	public void edit(Alumno alumno) {
-		String sql = String.format("UPDATE %s SET nombre = ?, fecha_nacimiento = ? WHERE id = ?", TABLA);
-		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getFechaNacimiento(), alumno.getId());
+		String sql = String.format("UPDATE %s SET nombre = ?, fecha_nacimiento = ?, carrera_id = ? WHERE id = ?", TABLA);
+		jdbcTemplate.update(sql, alumno.getNombre(), alumno.getFechaNacimiento(), alumno.getCarrera().getId(), alumno.getId());
 	}
 
 	@Override
