@@ -7,6 +7,46 @@
 
 ## SESIONES 
 
+### Sesión - 6 de 23 - Sábado 14 de Mayo
+
+BREAK 10:30 hasta 10:45hrs 
+
+Tarea (Terminar antes del Break)
+-------
+- Crear el CRUD de la entidad Carrera 
+- Soporte un id, nombre y descripción para la entidad Carrera 
+
+Objetivos de hoy 
+------------------
+- 
+
+Repaso
+------- 
+- Gestionando el proyecto y las depencias con Maven 
+- Reconocer la sintaxis e información que va dentro del archivo pom.xml 
+- Iniciar proyectos usando STS o start.spring.io
+- Reconocer la función que cumplen los siguientes componentes de Spring: 
+	* Spring Web 
+	* Thymeleaf 
+	* Spring Boot Devtools 	
+	* Validation 
+	* JDBC API (JdbcTemplate) 
+	* Driver BD (Mysql, PostgreSQL u otro)
+- Reconocer la sintaxis de una anotación en Java 
+- Reconocer las siguientes anotaciones: 
+	* @Autowired (inyección de dependencias) 
+	* @Controller 
+	* @RequestMapping 
+	* @GetMapping
+	* @PostMapping 
+	* @Repository 
+- Reconocer el uso de los elementos básicos de Thymeleaf:
+	* th:text 
+	* th:each 
+	* ${objeto} ${objeto.atributo}
+	* @{/enlace} @{/enlace/{entidadId}}
+	
+	
 ### Sesión - 5 de 23 - Viernes 13 de Mayo
 
 BREAK de 20:05 hasta 20:20hrs
