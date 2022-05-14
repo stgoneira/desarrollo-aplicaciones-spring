@@ -4,12 +4,65 @@
 
 ## TRABAJOS 
 
+Evidencia Portafolio 07-05-2022
+--------------------------------
+- Archivo TXT con enlace a repositorio GITHUB de los avances realizados del proyecto CFT 
+
+Evidencia Portafolio 14-05-2022
+--------------------------------
+- Archivo TXT con enlace a repositorio GITHUB de los avances realizados del proyecto CFT 
+
+Evidencia Portafolio 20-05-2022
+--------------------------------
+
+Evidencia Portafolio 27-05-2022
+--------------------------------
+
+Evaluación Portafolio (30 Mayo) - Catálogo 
+------------------------------------------- 
+- Catálogo de Productos con entidades: Producto y Categoría (JPA) 
+- Atributos mínimos:
+	* Producto: id, nombre, imagen, descripción 
+	* Categoría: id, nombre 
+- Vista de grilla para ver los productos 
+- Vista de lista para ver los productos 
+- NO es necesario hacer autenticación 
+
+Trabajo Final (31 Mayo) - Mantenedor Biblioteca 
+-------------------------------------------------
+- CRUD entidades Libro y Autor
+- Se debe acceder al mantenedor usando usuario y contraseña (Autenticación) 
+- Utilice JDBC (SQL) 
+
+
+
 
 ## SESIONES 
 
 ### Sesión - 6 de 23 - Sábado 14 de Mayo
 
 BREAK 10:30 hasta 10:45hrs 
+
+Actividad - Soporte vinculación Alumno - Carrera 
+-------------------------------------------------
+1) Modificar la entidad (clase Java)
+	* Crear Carrera 
+	* Modificar Alumno
+2) Modificar la tabla en la BD (Foreign Key) 
+	CREATE TABLE carreras(
+		id INT AUTO_INCREMENT PRIMARY KEY,
+		nombre CHAR(50) NOT NULL
+	);
+	ALTER TABLE alumnos
+		ADD COLUMN carrera_id INT,
+		ADD FOREIGN KEY(carrera_id) REFERENCES carreras(id)
+	;
+3) Agregar un converter a Spring 
+4) Modificación formulario 
+5) Modificar todos los componentes dependientes:
+	* Repositorio 
+	* Controller 
+	* Formularios 
 
 Tarea (Terminar antes del Break)
 -------
@@ -18,7 +71,9 @@ Tarea (Terminar antes del Break)
 
 Objetivos de hoy 
 ------------------
-- 
+- Repasar conceptos principales de Spring vistos hasta hoy 
+- Agregar soported CRUD a entidad Carrera 
+- Configurar converter en Spring 
 
 Repaso
 ------- 
