@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Proveedor</title>
+</head>
+<body>
+	<div data-th-insert="fragmentos/header :: header" />
+
+	<h1>Proveedor</h1>
+	<form data-th-action="@{/proveedor/procesar}" data-th-object="${proveedor}" method="post">
+		<input type="hidden" data-th-field="*{id}" />
+		RUT: <input type="text" data-th-field="*{rut}" /><br />
+		Razón Social: <input type="text" data-th-field="*{razonSocial}" /><br />
+		<button type="submit">Guardar</button>
+	</form>
+</body>
+</html>

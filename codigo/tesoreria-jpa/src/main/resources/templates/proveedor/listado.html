@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Proveedores</title>
+</head>
+<body>
+	<div data-th-insert="fragmentos/header :: header" />
+	
+	<h1>Proveedores</h1>
+	
+	<a data-th-href="@{/proveedor/nuevo}">Nuevo</a>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>RUT</th>
+				<th>Razón Social</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="proveedor : ${proveedores}">
+				<td data-th-text="${proveedor.id}" />
+				<td data-th-text="${proveedor.rut}" />
+				<td data-th-text="${proveedor.razonSocial}" />
+				<td>
+					<a data-th-href="@{/proveedor/editar/{id}(id=${proveedor.id})}">Editar</a>
+					<a data-th-href="@{/proveedor/eliminar/{id}(id=${proveedor.id})}">Eliminar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
