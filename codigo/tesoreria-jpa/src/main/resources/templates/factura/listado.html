@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Facturas</title>
+</head>
+<body>
+	<div data-th-insert="fragmentos/header :: header" />
+	
+	<h1>Facturas</h1>
+	
+	<a data-th-href="@{/factura/nueva}">Nueva</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Folio</th>
+				<th>Fecha</th>
+				<th>RUT</th>
+				<th>Razón Social</th>
+				<th>Monto</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="factura : ${facturas}">
+				<td data-th-text="${factura.folio}" />
+				<td data-th-text="${factura.fecha}" />
+				<td data-th-text="${factura.proveedor.rut}" />
+				<td data-th-text="${factura.proveedor.razonSocial}" />
+				<td data-th-text="${factura.monto}" />
+				<td>
+					<a data-th-href="@{/factura/editar/{id}(id=${factura.id})}">Editar</a>
+					<a data-th-href="@{/factura/eliminar/{id}(id=${factura.id})}">Eliminar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
