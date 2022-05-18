@@ -1,7 +1,17 @@
 # DESARROLLO DE APLICACIONES CON SPRING FRAMEWORK 
 
 ## TEMÁTICAS 
-
+- Maven 
+	* Dependencias 
+- Spring Core 
+	* Autowired 
+- Spring Data 
+	* JdbcTemplate 
+	* JPA 
+- Validation 
+- Spring Web 
+	* Thymeleaf 
+	* Controller 
 ## TRABAJOS 
 
 Evidencia Portafolio 07-05-2022
@@ -38,6 +48,38 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 
 ## SESIONES 
+
+### Sesión - 8 de 23 - Martes 17 de Mayo 
+
+BREAK de 20:25 a 20:40hrs 
+
+Objetivos del día
+------------------
+- Implementar entidades relacionadas usando JPA 
+- Utilizar los fragmentos de Thymeleaf 
+- Reconoce las tareas que se ejecutan con Maven (clean, test, install, package) 
+- Reconocer la utilidad del proyecto Lombok 
+- Ejecutar Maven desde Spring Tool Suite 
+- Ejecutar Maven desde un entorno tipo Terminal 
+- Generar empaquetado JAR del proyecto Spring 
+- Ejecutar fuera de Spring Tool Suite un proyecto web
+
+### Sesión - 7 de 23 - Lunes 16 de Mayo 
+
+BREAK 20:45 a 21:00hrs 
+
+Objetivos del día
+------------------
+- Reconocer la funcionalidad de un ORM 
+- Integrar Hibernate a proyecto de Spring 
+- Identificar las anotaciones más comunes de JPA 
+- Reconocer la utilidad de la interfaz JpaRepository de Spring 
+
+
+Actividad Tesorería JPA 
+-------------------------
+1) Generar proyecto Web con dependencia "Spring Data JPA" 
+2) Configurar conexión BD en archivo applications.properties  
 
 ### Sesión - 6 de 23 - Sábado 14 de Mayo
 
@@ -162,12 +204,6 @@ Objetivos del día
 - Reconocer cómo integrar campos de fechas entre Thymeleaf y Jdbctemplate 
 - Agregar entidad Carrera 
 - Identificar la sintaxis de Thymeleaf para generar enlaces parametrizados 
-- Reconoce las tareas que se ejecutan con Maven (clean, test, install, package) 
-- Reconocer la utilidad del proyecto Lombok 
-- Ejecutar Maven desde Spring Tool Suite 
-- Ejecutar Maven desde un entorno tipo Terminal 
-- Generar empaquetado JAR del proyecto Spring 
-- Ejecutar fuera de Spring Tool Suite un proyecto web 
 
 ### Sesión - 4 de 23 - Jueves 12 de Mayo
 
