@@ -13,6 +13,7 @@
 - https://docs.spring.io/spring-boot/docs/2.6.7/reference/htmlsingle/ 
 - https://docs.spring.io/spring-security/reference/servlet/authentication/logout.html 
 - https://docs.spring.io/spring-security/reference/5.6/servlet/getting-started.html 
+- https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.at-query
 
 
 # Guías 

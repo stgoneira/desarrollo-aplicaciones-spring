@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="fragmentos/head :: cabecera(~{::title}, _)">
+	<title>Usuario</title>	
+</head>
+<body>	
+	<nav data-th-replace="fragmentos/menu :: menu"></nav>
+
+	<h1>Usuario</h1>
+	
+	<form data-th-action="@{/usuario/crear}" data-th-object="${usuario}" method="post">
+		Usuario: <input type="text" data-th-field="*{usuario}" /><br />
+		Password: <input type="text" data-th-field="*{contrasena}" /><br />
+		Roles: <input type="text" data-th-field="*{roles}" /><br />
+		<button type="submit">Guardar</button>
+	</form>
+
+	<div data-th-replace="fragmentos/scripts"></div>
+</body>
+</html>
