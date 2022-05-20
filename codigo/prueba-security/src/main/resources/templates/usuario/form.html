@@ -10,7 +10,7 @@
 	
 	<form data-th-action="@{/usuario/crear}" data-th-object="${usuario}" method="post">
 		Usuario: <input type="text" data-th-field="*{usuario}" /><br />
-		Password: <input type="text" data-th-field="*{contrasena}" /><br />
+		Password: <input type="password" data-th-field="*{contrasena}" /><br />
 		Roles: <input type="text" data-th-field="*{roles}" /><br />
 		<button type="submit">Guardar</button>
 	</form>

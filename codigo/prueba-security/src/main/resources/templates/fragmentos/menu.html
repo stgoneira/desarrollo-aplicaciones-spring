@@ -21,13 +21,16 @@
 					<li class="nav-item"><a class="nav-link" data-th-href="@{/nosotros}">Nosotros</a></li>
 					<li class="nav-item"><a class="nav-link" data-th-href="@{/contacto}">Contacto</a></li>
 					<li class="nav-item"><a class="nav-link" data-th-href="@{/usuario/crear}">Crear Usuario</a></li>
-					<li data-sec-authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link" data-th-href="@{/admin/index}">Admin</a></li>
-					<li data-sec-authorize="hasRole('ADMIN')" class="nav-item"><a class="nav-link" data-th-href="@{/admin/reporte}">Reporte</a></li>									
-										
+					<li data-sec-authorize="hasAuthority('ADMIN')" class="nav-item"><a class="nav-link" data-th-href="@{/admin/index}">Admin</a></li>
+					<li data-sec-authorize="hasAuthority('ADMIN')" class="nav-item"><a class="nav-link" data-th-href="@{/admin/reporte}">Reporte</a></li>
 				</ul>		
 				
 				<ul class="navbar-nav mb-2 mb-lg-0">
-					<li data-sec-authorize="isAuthenticated()" class="nav-item"><a class="nav-link active me-5" href="#">Bienvenido <span data-sec-authentication="name" /></a></li>					
+					<li data-sec-authorize="isAuthenticated()" class="nav-item">
+						<a class="nav-link active me-5" href="#">
+							Bienvenido <span data-sec-authentication="name" /> <span data-sec-authentication="principal.authorities" />
+						</a>
+					</li>					
 					<li data-sec-authorize="!isAuthenticated()" class="nav-item"><a class="nav-link active" aria-current="page" data-th-href="@{/ingreso}">Ingresar</a></li>
 					<li data-sec-authorize="isAuthenticated()" class="nav-item"><a class="nav-link active" aria-current="page" data-th-href="@{/salir}">
 						Salir

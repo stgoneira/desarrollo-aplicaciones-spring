@@ -29,7 +29,7 @@ public class UsuarioController {
 		if( informeValidacion.hasErrors() ) return "usuario/form";
 		
 		usuarioService.crearUsuario(usuario);
-		return "redirect:usuario/form";
+		return "redirect:/usuario/form";
 	}
 	
 }
