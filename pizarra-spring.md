@@ -1,15 +1,19 @@
 # DESARROLLO DE APLICACIONES CON SPRING FRAMEWORK 
 
 ## TEMÁTICAS 
-- Maven 
+[x] Maven 
 	* Dependencias 
-- Spring Core 
+[x] Spring Core 
 	* Autowired 
-- Spring Data 
+[x] Spring Data 
 	* JdbcTemplate 
 	* JPA 
-- Validation 
-- Spring Web 
+[x] Autenticación 
+[x] Autorización 
+[]  Transacciones 
+[]  REST 
+[x] Validation 
+[x] Spring Web 
 	* Thymeleaf 
 	* Controller 
 ## TRABAJOS 
@@ -24,6 +28,9 @@ Evidencia Portafolio 14-05-2022
 
 Evidencia Portafolio 20-05-2022
 --------------------------------
+- Tesorería JPA 
+- Avances en Content Management System (Autenticación y Autorización) 
+
 
 Evidencia Portafolio 27-05-2022
 --------------------------------
@@ -43,11 +50,179 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 - CRUD entidades Libro y Autor
 - Se debe acceder al mantenedor usando usuario y contraseña (Autenticación) 
 - Utilice JDBC (SQL) 
-
-
+- Opcionalmente agregue una vista pública para poder buscar libros 
 
 
 ## SESIONES 
+
+### Sesión - 13 de 23 - Martes 24 de Mayo 
+
+BREAK 20:00 a 20:15hrs
+
+Objetivo del día
+------------------
+Implementar la autenticación del trabajo final (mantenedor biblioteca) 
+
+### Sesión - 12 de 23 - Lunes 23 de Mayo 
+
+BREAK de 20:30 a 20:45hrs
+
+Objetivo del día
+------------------
+
+- Autorización usando JPA y JdbcTemplate
+
+Actividad Autenticación y Autorización JPA 
+-------------------------------------------
+1) Revisar y agregar dependencia a JPA y Driver correspondiente
+
+2) Crear una base de datos para el proyecto 
+
+3) Configurar el datasource y JPA en modo UPDATE en application.properties 
+
+4) Crear una clase @Entity que representa al usuario. Como mínimo tiene que tener un campo para el username, para la password y para los roles. 
+
+Checkpoint - que se haya creado automáticamente la tabla en la BD 
+
+5) Implementar UsuarioRepository 
+
+6) Configurar @Bean que defina la clase a utilizar por Spring Security para codificar las contraseñas 
+
+7) Crear clase @Service que sabe como crear un usuario y codificar su contraseña 
+
+8) Generar ruta en controller (ej. /admin/instalar) que generará un usuario inicial en el sistema.
+
+9) Dar permiso a ruta /admin/instalar 
+
+Checkpoint: es ingresar a esa ruta y que aparezca el usuario en la tabla de la BD 
+
+10) Crear clase que implemente interfaz UserDetailsService. Esta clase buscará el usuario en la BD y lo devolverá en formato entendible para Spring Security. Recuerde anotarla con @Service  
+
+11) Configurar Spring Security para que utilice el servicio del tipo UserDetailsService y que utilice el codificado de password que generamos:
+
+@Override
+protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	auth 
+		.userDetailsService( miServicioUsuario )
+		.passwordEncoder( passwordEncoder ) 
+	;
+} 
+
+### Sesión - 11 de 23 - Viernes 20 de Mayo 
+
+BREAK de 20:12 a 20:27hrs
+
+- Autorización con formulario personalizado 
+- Generamos usuarios a través de clase Java 
+
+
+Actividad - Form Personalizado 
+--------------------------------
+
+1) Configurar en método configure(HttpSecurity http) 
+la ruta del formulario:
+
+http.formLogin( form -> form 
+				.loginPage("/mi-form-personalizado") 
+				.defaultSuccessUrl("/") 
+				.permitAll()
+			)
+2) Crear un controller con la ruta al formulario personalizado 
+
+3) En la vista (html) el formulario personalizado debe tener un campo llamado username y otro llamado password. El formulario debe ser enviado por POST a la misma URL del formulario 
+
+### Sesión - 10 de 23 - Jueves 19 de Mayo 
+
+BREAK de 20:20 a 20:35hrs
+
+- Autenticación sin BD externa 
+- Autorización 
+- Utilizar los fragmentos de Thymeleaf 
+
+Actividad - Spring Security - CMS 
+---------------------------------- 
+
+### Versiones 
+
+1.0 )
+- Spring Web 
+- Dev Tools 
+- Thymeleaf 
+- Spring Security 
+- Lombok (opcional)
+
+### Controllers 
+
+SitioController 
+
+AdminController
+
+### Rutas
+
+/inicio (pública)
+/nosotros (pública)
+/contacto (pública)
+/admin/index (privada)
+/admin/reporte (privada)
+
+### Partes
+templates/parts/head.html 
+templates/parts/menu.html 
+templates/parts/scripts.html 
+
+## v2) Configurar un usuario y contraseña (application.properties)
+spring.security.user.name=santiago
+spring.security.user.password=mipass
+spring.security.user.roles=ADMIN
+
+## v2.1) Configurar los permisos 
+
+## v2.2) Personalizar el Login Form 
+
+## v3) Configurar varios usuarios
+
+## v4) Configurar usuarios con JPA 
+
+## v5) Configurar usuarios con JDBC 
+
+
+
+
+
+
+
+
+### Sesión - 9 de 23 - Miércoles 18 de Mayo 
+
+BREAK 20:30 a 20:45hrs
+
+- Reconocer la utilidad del proyecto Lombok 
+- Reconoce las tareas que se ejecutan con Maven (clean, test, package, install) 
+- Ejecutar Maven desde Spring Tool Suite 
+- Ejecutar Maven desde un entorno tipo Terminal 
+- Generar empaquetado JAR del proyecto Spring 
+- Ejecutar fuera de Spring Tool Suite un proyecto web
+
+Actividad - Lombok 
+-------------------- 
+1) Descargar el JAR desde https://projectlombok.org/download 
+
+2) Ejecutar el JAR y especificar la ruta del Spring Tool Suite 
+
+3) Reiniciar Spring Tool Suite si estaba ejecutándose 
+
+4) Generar proyecto Spring agregando la dependencia de Lombok 
+
+5) Generar una clase simple en Java con solo sus atributos 
+
+6) Anotar la clase con:
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+
+7) Agregue y remueva anotaciones para identificar los cambios que se producen en la lista de métodos y constructores usando Eclipse (STS) 
+
 
 ### Sesión - 8 de 23 - Martes 17 de Mayo 
 
@@ -56,13 +231,6 @@ BREAK de 20:25 a 20:40hrs
 Objetivos del día
 ------------------
 - Implementar entidades relacionadas usando JPA 
-- Utilizar los fragmentos de Thymeleaf 
-- Reconoce las tareas que se ejecutan con Maven (clean, test, install, package) 
-- Reconocer la utilidad del proyecto Lombok 
-- Ejecutar Maven desde Spring Tool Suite 
-- Ejecutar Maven desde un entorno tipo Terminal 
-- Generar empaquetado JAR del proyecto Spring 
-- Ejecutar fuera de Spring Tool Suite un proyecto web
 
 ### Sesión - 7 de 23 - Lunes 16 de Mayo 
 
