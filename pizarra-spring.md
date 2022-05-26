@@ -55,6 +55,14 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+### Sesión - 15 de 23 - Jueves 26 de Mayo 
+
+Objetivos del día 
+----------------- 
+- Revisión del caso examen de certificación
+- Planificación iterativa del mismo 
+- Avanzar en la estructura del proyecto (Github, Heroku y documentación) 
+
 ### Sesión - 14 de 23 - Miércoles 25 de Mayo 
 
 BREAK de 20:00 a 20:15hrs 
