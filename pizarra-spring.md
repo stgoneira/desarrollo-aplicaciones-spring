@@ -55,6 +55,83 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+### Sesión - 14 de 23 - Miércoles 25 de Mayo 
+
+BREAK de 20:00 a 20:15hrs 
+
+Objetivo del día 
+-----------------
+Desplegar proyecto Java + Spring en plataforma Heroku. 
+
+Pasos 
+-------
+1) Crear una cuenta en Heroku e instalar Heroku CLI
+2) Vincular nuestro proyecto a través de GIT 
+3) Configurar la versión de Java que debe utilizar Heroku 
+4) Heroku Addon - (PostgreSQL) 
+5) Integrarnos a las variables ambientales de Heroku 
+6) Probar el despliegue 
+
+
+Actividad - Despliegue de mi App Spring en Heroku 
+---------------------------------------------------
+1) Crear cuenta en Heroku.com 
+2) Instalar Heroku CLI 
+3) Ejecutar en PowerShell y seguir los pasos para autenticación:
+heroku login 
+4) Crear proyecto Java + Spring con dependencias de: Dev Tools, Spring Web y Thymeleaf 
+5) Crear 2 rutas en un controller y sus respectivos archivos HTML 
+6) Configurar la versión de Java que debe utilizar Heroku. Debemos crear un archivo llamado system.properties, en la raíz del proyecto (al mismo nivel que el pom.xml) con el siguiente contenido: 
+
+java.runtime.version=11
+
+7) Inicializar repositorio local de GIT con el comando (dentro de la carpeta del proyecto usando PowerShell):
+
+git init 
+
+8) Es vincular el repositorio remoto de Heroku:
+
+heroku git:remote -a el-nombre-de-su-proyecto-heroku
+
+9) Hacer commit y push del repositorio 
+
+git add -A 
+git commit -m "preparando deploy Heroku"
+git push heroku master 
+
+Actividad - Agregar Soporte BD en Heroku 
+------------------------------------------ 
+
+1) Agregar Addon "Heroku Postgres" 
+
+2) Agregar dependencias a proyecto Spring (Driver + JPA | JDBC + Lombok[opcional])
+
+3) Configurar proyecto Java para conexión con variables ambientales: application.properties 
+
+spring.datasource.url=${JDBC_DATABASE_URL}
+spring.datasource.username=${JDBC_DATABASE_USERNAME}
+spring.datasource.password=${JDBC_DATABASE_PASSWORD}
+
+4) Configurar variables ambientales en Sistema Operativo (ambiente desarrollo) para conectar con un PostgreSQL instalado de manera local o alternativamente usar alguna plataforma como ElephantSQL  
+
+JDBC_DATABASE_URL
+JDBC_DATABASE_USERNAME
+JDBC_DATABASE_PASSWORD
+
+5) Reiniciar Spring Tool Suite para que reconozca las variables ambientales 
+
+6) Generar algún código que genere algo en la Base de Datos, por ejemplo una entidad JPA para que se cree una nueva tabla en la BD. 
+
+7) Revisar que se haya generado el cambio en la BD de desarrollo 
+
+8) Desplegar en Heroku 
+
+9) Visitar la URL 
+
+10) Conectar PgAdmin u otro cliente a la BD de Heroku 
+
+11) Revisar que se haya hecho la modificación en la BD de Heroku (Producción) 
+
 ### Sesión - 13 de 23 - Martes 24 de Mayo 
 
 BREAK 20:00 a 20:15hrs
