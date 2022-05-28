@@ -16,6 +16,7 @@
 [x] Spring Web 
 	* Thymeleaf 
 	* Controller 
+	
 ## TRABAJOS 
 
 Evidencia Portafolio 07-05-2022
@@ -34,6 +35,9 @@ Evidencia Portafolio 20-05-2022
 
 Evidencia Portafolio 27-05-2022
 --------------------------------
+- Proyecto Spring Security (cms) 
+- Proyecto en Heroku (solo el enlace) 
+- Proyecto API REST (productos)
 
 Evaluación Portafolio (30 Mayo) - Catálogo 
 ------------------------------------------- 
@@ -55,7 +59,42 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+### Sesión - 17 de 23 - Sábado 28 de Mayo 
+
+BREAK 10:45 a 11:00hrs
+
+Objetivos del día 
+------------------
+- Reconocer los tipos de datos de la BD que sirven para almacenar archivos 
+- Reconocer como crear un formulario HTML que permita la subida de archivos 
+- Reconocer la importancia de las cabeceras en HTTP 
+- Reconocer la mejor estrategia de backups (respaldos) cuando hay archivos almacenados de por medio 
+- Avanzar en proyectos (Proyecto Final Módulo, Proyecto Evaluación Portafolio, Examen)
+- Subir evidencia 27 de Mayo  
+
+Actividad - File Upload 
+------------------------
+1) Proyecto Spring Web + JPA 
+2) Crear entidad usando anotación @Lob 
+3) Crear repositorio JPA 
+4) Crear método en controller usando tipo MultipartFile 
+5) Crear método en el controller que nos permita utilizar el archivo 
+
+### Sesión - 16 de 23 - Viernes 27 de Mayo 
+
+BREAK 20:00 a 20:15hrs 
+
+Objetivos del día
+------------------
+- Reconocer la utilidad de un Web Service 
+- Reconocer el formato de intercambio JSON, XML y Texto Plano 
+- Construir un Web Service básico usando Spring 
+- Consumir un Web Service desde un 2do proyecto 
+- Avanzar en Examen Certificación, Proyecto Final o Evaluación Portafolio 
+
 ### Sesión - 15 de 23 - Jueves 26 de Mayo 
+
+BREAK de 20:06 a 20:21hrs 
 
 Objetivos del día 
 ----------------- 
