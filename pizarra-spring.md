@@ -59,6 +59,23 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+### Sesión - 18 de 23 - Lunes 30 de Mayo 
+
+BREAK 20:40 a 20:55hrs
+
+Objetivos del día 
+-------------------
+- Identificar los distintos métodos de HTTP (GET, POST, PUT, DELETE) 
+- Crear controlador en Spring usando los distintos métodos HTTP 
+- Consumir los servicios desde proyecto HTML 
+
+Actividad - Catálogo REST 
+--------------------------- 
+1) Crear entidad Producto 
+2) Crear repositorio 
+3) Crear RestController con operaciones CRUD 
+4) Crear proyecto usando solo HTML y JS para consumir los WS 
+
 ### Sesión - 17 de 23 - Sábado 28 de Mayo 
 
 BREAK 10:45 a 11:00hrs

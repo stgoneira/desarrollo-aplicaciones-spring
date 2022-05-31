@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Catálogo de Productos</title>
+</head>
+<body>
+    <h1>Catálogo de Productos</h1>
+
+    <form id="formulario-producto">
+        <input type="hidden" id="id" />
+        Producto: <input id="nombre" type="text" /><br />
+        Precio: <input id="precio" type="number" /><br />
+        <button type="submit">Guardar</button>
+        <button type="reset" onclick="document.getElementById('id').value = 0">Limpiar</button>
+    </form>
+
+    <br />
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbody-productos">
+
+        </tbody>
+    </table>
+
+    <script>
+        let cargarContenido = () => {
+            let url = "http://localhost:8080/productos";            
+            fetch(url) // por defecto método GET 
+                .then( res => res.json() )
+                .catch( error => console.error("Error:", error))
+                .then( response => {
+                    let tbody = document.getElementById("tbody-productos"); 
+                    tbody.innerHTML = "";
+                    // cargar datos en tbody
+                    for(producto of response) {
+                        tbody.innerHTML += "<tr>"+
+                            "<td>"+producto.id+"</td>"+
+                            "<td>"+producto.nombre+"</td>"+
+                            "<td>"+producto.precio+"</td>"+
+                            "<td>"+
+                                '<button data-id="'+producto.id+'" class="editar-producto">Editar</button> '+
+                                '<button data-id="'+producto.id+'" class="eliminar-producto" href="#">Eliminar</button>'+
+                            "</td>"+
+                        "</tr>";
+                    }
+
+                    document.querySelectorAll(".eliminar-producto").forEach( btn => btn.addEventListener("click", (evento) => {
+                        let boton = evento.currentTarget;
+                        let id = boton.getAttribute("data-id");
+                        let url = "http://localhost:8080/productos/"+id;
+                        fetch(url, {
+                                method: "DELETE"
+                            })                
+                            .then( res => cargarContenido() )
+                            .catch( error => console.error("Error:", error))
+                        ;                        
+                        evento.preventDefault();
+                        return false;
+                    }));
+
+                    document.querySelectorAll(".editar-producto").forEach( btn => btn.addEventListener("click", (evento) => {
+                        let boton = evento.currentTarget;
+                        let id = boton.getAttribute("data-id");
+                        let url = "http://localhost:8080/productos/"+id;
+                        fetch(url)
+                            .then( res => res.json() )
+                            .catch( error => console.error("Error:", error))
+                            .then( producto => {
+                                document.getElementById("id").value = producto.id;
+                                document.getElementById("nombre").value = producto.nombre;
+                                document.getElementById("precio").value = producto.precio;
+                            })
+                        ;                        
+                        evento.preventDefault();
+                        return false;
+                    }));
+                })
+            ;
+        };
+
+        window.addEventListener("DOMContentLoaded", cargarContenido);
+
+        // let -> inicia una variable 
+        let formProducto = 
+            document.getElementById("formulario-producto");
+        // configura una función para el evento submit del form 
+        formProducto.addEventListener("submit", (evento) => { 
+            // recupera los valores del formulario 
+            let id      = parseInt( document.getElementById("id").value );  
+            let nombre  = document.getElementById("nombre").value; 
+            let precio  = document.getElementById("precio").value;
+
+            // muestra por consola del browser
+            console.log(id);
+            console.log(nombre);
+            console.log(precio);
+
+            // invoca el Web Service para crear
+            let url = "http://localhost:8080/productos";
+            let metodo = "POST";
+            let datos = {
+                nombre,
+                precio
+            };
+
+            if( !isNaN(id) && id > 0) {
+                url = "http://localhost:8080/productos/"+id;
+                datos.id = id;
+                metodo = "PUT";
+            }
+
+            
+            fetch(url, {
+                    method: metodo,
+                    body: JSON.stringify(datos),
+                    headers: {'Content-Type': 'application/json'}
+                })                
+                .then( res => res.json() )
+                .catch( error => console.error("Error:", error))
+                .then( response => cargarContenido() )
+            ;
+            
+
+            // previene el comportamiento normal (submit form) 
+            evento.preventDefault();
+            return false;
+        });
+    </script>
+</body>
+</html>
