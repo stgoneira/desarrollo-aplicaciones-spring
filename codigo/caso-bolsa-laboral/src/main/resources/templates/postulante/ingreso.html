@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Ingreso de Postulantes</title>
+</head>
+<body>
+	<h1>Ingreso</h1>
+	
+	<div data-th-if="${param.error}" class="alert alert-danger" role="alert">
+ 		Usuario y/o contraseña incorrecta.
+	</div>
+	<form data-th-action="@{/postulante/ingreso}" method="post">
+		Usuario:<input type="text" name="username" /> <br />
+		Contraseña: <input type="password" name="password" /> <br />
+		<button type="submit">Ingresar</button>
+	</form>
+</body>
+</html>
