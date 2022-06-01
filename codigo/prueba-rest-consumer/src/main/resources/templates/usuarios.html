@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Usuarios</title>
+</head>
+<body>
+	<h1>Usuarios</h1>
+	
+	<ol>
+		<li data-th-each="usuario : ${usuarios}" data-th-text="${usuario.nombre}+' - '+${usuario.direccion.ciudad}">Usuario</li>
+	</ol>
+</body>
+</html>
