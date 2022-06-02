@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="parts/header :: head(~{::title})">
+	<meta charset="UTF-8" />
+	<title>Publicar un aviso</title>
+</head>
+<body>
+
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<h1>Publicar Aviso</h1>
+	
+	<form data-th-action="@{/aviso/crear}" method="post" data-th-object="${aviso}">
+		Titulo: <input type="text" data-th-field="*{titulo}" /> <br />
+		Descripción: <br /> 
+		<textarea data-th-field="*{descripcion}" rows="10" cols="25"></textarea>
+		<br />
+		
+		<button type="submit">Publicar</button>
+	</form>
+
+</body>
+</html>

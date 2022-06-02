@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="parts/header :: head(~{::title})">
+	<meta charset="UTF-8" />
+	<title data-th-text="${aviso.titulo}"></title>
+</head>
+<body>
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<div class="container">
+		<h1 data-th-text="${aviso.titulo}"></h1>
+		
+		<div>
+			Publicado por: <span data-th-text="${aviso.empresa.razonSocial}" /><br />
+			Fecha Publicación: <span data-th-text="${aviso.fechaPublicacion}" /><br />
+			Descripción: <br />
+			<p data-th-text="${aviso.descripcion}"></p>
+			
+			<a data-th-href="@{/}" class="btn btn-primary">Quiero Postular</a>
+		</div>
+		
+	</div><!-- END .container -->
+	
+
+</body>
+</html>

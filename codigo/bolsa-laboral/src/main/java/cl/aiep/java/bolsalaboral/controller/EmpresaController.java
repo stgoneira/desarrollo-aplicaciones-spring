@@ -14,11 +14,6 @@ public class EmpresaController {
 	@Autowired
 	private EmpresaService servicio; 
 	
-	@GetMapping("/")
-	public String inicio() {		
-		return "redirect:/empresa/registro";
-	}
-	
 	@GetMapping("/empresa/registro")
 	public String registro(Empresa empresa, Model modelo) {
 		modelo.addAttribute("empresa", empresa);

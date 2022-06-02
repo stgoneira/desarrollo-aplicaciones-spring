@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head data-th-replace="parts/header :: head(~{::title})">
 	<meta charset="UTF-8" />
 	<title>Registro de Postulantes</title>
 </head>
 <body>
 
+	<div data-th-replace="parts/header :: menu"></div>
+	
 	<h1>Registro de Postulante</h1>
 
 	<form 

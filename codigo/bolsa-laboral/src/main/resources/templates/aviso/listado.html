@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="parts/header :: head(~{::title})">
+	<meta charset="UTF-8" />
+	<title>Bolsa Laboral - Avisos</title>
+</head>
+<body>
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<div class="container">
+		
+		<h1 class="text-center">Últimos Avisos</h1>
+		<hr />
+		<div class="row">
+			<div class="col-lg-4" data-th-each="aviso : ${avisos}"> 
+				<div>
+					<h2 data-th-text="${aviso.titulo}"></h2>
+					<strong>Publicado por</strong>: <span data-th-text="${aviso.empresa.razonSocial}" /><br />
+					<strong>Fecha Publicación:</strong> <span data-th-text="${aviso.fechaPublicacion}" /><br />
+					<strong>Descripción:</strong> <br />
+					<p>
+						<span data-th-text="${aviso.descripcion.substring(0,100)}" />
+						<span>...</span>
+					</p>
+					
+					<a data-th-href="@{/}" class="btn btn-primary">Quiero Postular</a>
+					<a data-th-href="@{/aviso/{id}(id=${aviso.id})}" class="btn btn-primary">Ver Detalles</a>
+				</div>
+			</div>
+		</div>
+		
+			
+		
+		
+	</div><!-- END .container -->
+	
+
+</body>
+</html>
