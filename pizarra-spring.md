@@ -59,6 +59,64 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+### Sesión - 20 de 23 - Miércoles 01 de Junio 
+
+BREAK de 20:00 a 20:15hrs
+
+Objetivos del día 
+------------------
+- Consumir API REST usando Spring (RestTemplate) 
+- Avances en proyectos del módulo 
+
+Actividad - Consumo API Rest (iteración 1)
+-------------------------------------------
+1) Crear proyecto con dependencia obligatoria Spring Web y opcionales Thymeleaf, Spring Boot DevTools y Lombok 
+
+2) Crear clase que mapee los atributos con las propiedades del documento JSON (mismos nombres) 
+
+3) Crear controller y método que utilice RestTemplate para invocar la API y convertir el resultado en Objeto(s) Java 
+
+4) Opcionalmente mostrar estos datos en una vista de Thymeleaf 
+
+Actividad - Consumo API Rest (iteración 2)
+-------------------------------------------
+5) Mapear los atributos de la clase Java cuando no se llaman de manera idéntica a los del documento JSON 
+
+6) Generar clases adicionales para objetos incrustados en el doc JSON 
+
+### Sesión - 19 de 23 - Martes 31 de Mayo 
+
+Objetivos del día 
+------------------
+- Terminar cliente de la API REST utilizando HTML y Javascript 
+
+Actividad - Cliente HTML + JS 
+--------------------------------
+1) Implementar función JS que utilice fetch() para traer los productos desde la API REST y mostrarlos en una tabla HTML 
+
+2) Atachar función que actualiza la tabla al evento DOMContentLoaded 
+
+3) Crear formulario para productos 
+
+4) Crear función que guarda un producto usando fetch() y el método POST de HTTP. 
+
+5) Vincular la función que guarda un producto al evento submit del formulario 
+
+6) Agregar en la tabla un botón para eliminar. Agregar atributo data-id con el ID del producto (HTML). Adicionalmente colocar una clase (atributo class de HTML) que distinga al botón (ej. producto-eliminar)
+
+7) Escuchar el evento click sobre todos los botones eliminar y atachar función 
+
+8) La función para eliminar un producto usará fetch() para invocar el método DELETE del Web Service 
+
+9) Funcionalidad para editar productos:
+	9.1) Agregar campo oculto con ID al formulario 
+	
+	9.2) Agregar atributo class y data-id al botón editar 
+	
+	9.3) Escuchar y atachar una función al evento click del botón editar 
+	
+	9.4) La función anterior invoca el WS (método GET) que devuelve el producto a editar. Y carga estos datos en el formulario 
+
 ### Sesión - 18 de 23 - Lunes 30 de Mayo 
 
 BREAK 20:40 a 20:55hrs
