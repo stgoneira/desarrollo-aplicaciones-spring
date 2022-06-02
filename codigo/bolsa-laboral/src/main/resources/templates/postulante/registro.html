@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Registro de Postulantes</title>
+</head>
+<body>
+
+	<h1>Registro de Postulante</h1>
+
+	<form 
+		data-th-action="@{/postulante/registro}" 
+		method="post" 
+		data-th-object="${postulante}"
+	>
+		RUT: <input type="text" data-th-field="*{rut}" /> <br />
+		Nombre: <input type="text" data-th-field="*{nombre}" /> <br />
+		Email: <input type="email" data-th-field="*{email}" /> <br />
+		Contraseña: <input type="password" data-th-field="*{contrasena}" /> <br />
+		<button type="submit">Registrar</button> 
+	</form>
+</body>
+</html>

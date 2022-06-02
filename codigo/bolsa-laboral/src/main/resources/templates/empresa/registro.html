@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Registro de Empresas</title>
+</head>
+<body>
+
+	<h1>Registro de Empresas</h1>
+
+	<form 
+		data-th-action="@{/empresa/registro}" 
+		method="post" 
+		data-th-object="${empresa}"
+	>
+		RUT: <input type="text" data-th-field="*{rut}" /> <br />
+		Razón Social: <input type="text" data-th-field="*{razonSocial}" /> <br />
+		Email: <input type="email" data-th-field="*{email}" /> <br />
+		Contraseña: <input type="password" data-th-field="*{contrasena}" /> <br />
+		<button type="submit">Registrar</button> 
+	</form>
+</body>
+</html>
