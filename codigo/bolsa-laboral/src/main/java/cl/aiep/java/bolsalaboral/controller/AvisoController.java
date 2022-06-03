@@ -46,21 +46,19 @@ public class AvisoController {
 		return "aviso/ficha";
 	}
 		
+	@PreAuthorize("hasAuthority('EMPRESA')")
 	@PostMapping("/aviso/crear")
 	public String procesarAviso(Aviso aviso, Model modelo, Authentication usuarioAuth) {
-		Usuario usuario = (Usuario) usuarioAuth.getPrincipal();
-		if(usuario.getEmpresa() != null) {
-			Long empresaId = usuario.getEmpresa().getId(); 
-			
-			Empresa empresa = empresaRepository.findById( empresaId ).get();
-			aviso.setEmpresa(empresa);
-			
-			aviso.setFechaPublicacion( LocalDateTime.now() );
-			repositorio.save(aviso);
-			return "redirect:/aviso/publicacion-exitosa";	
-		} else {
-			return "redirect:/error/usuario-no-autorizado"; 
-		}
+		Usuario usuario = (Usuario) usuarioAuth.getPrincipal();		
+		Long empresaId = usuario.getEmpresa().getId(); 
+		
+		Empresa empresa = empresaRepository.findById( empresaId ).get();
+		aviso.setEmpresa(empresa);
+		
+		aviso.setFechaPublicacion( LocalDateTime.now() );
+		repositorio.save(aviso);
+		return "redirect:/aviso/publicacion-exitosa";	
+		
 	}
 	
 }

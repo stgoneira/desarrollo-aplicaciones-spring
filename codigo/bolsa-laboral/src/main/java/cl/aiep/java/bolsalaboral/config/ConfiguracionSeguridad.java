@@ -11,6 +11,11 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
+@EnableGlobalMethodSecurity(
+	prePostEnabled = true,
+	securedEnabled = true,
+	jsr250Enabled = true
+)
 @EnableWebSecurity
 public class ConfiguracionSeguridad {
 
@@ -22,8 +27,11 @@ public class ConfiguracionSeguridad {
 	@Bean 
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests( authorize -> authorize 
-						.anyRequest().permitAll() 
+			.authorizeHttpRequests( authorize -> authorize
+						.mvcMatchers("/", "/aviso/crear","/empresa/registro", "/postulante/registro").permitAll()
+						.mvcMatchers("/empresa/**").hasAuthority("EMPRESA") 
+						.mvcMatchers("/postulante/**").hasAuthority("POSTULANTE")
+						.anyRequest().authenticated() 
 			)
 			.formLogin(form -> form 
 						.loginPage("/ingreso") 

@@ -14,7 +14,7 @@
 		Debe registrarse como EMPRESA para poder publicar un aviso!!!
 	</div>
 	
-	<div data-sec-authorize="hasAuthority('EMPRESA')" >
+	
 	<form data-th-action="@{/aviso/crear}" method="post" data-th-object="${aviso}">
 		Titulo: <input type="text" data-th-field="*{titulo}" /> <br />
 		Descripción: <br /> 
@@ -23,7 +23,7 @@
 		
 		<button type="submit">Publicar</button>
 	</form>
-	</div>
+	
 
 </body>
 </html>
