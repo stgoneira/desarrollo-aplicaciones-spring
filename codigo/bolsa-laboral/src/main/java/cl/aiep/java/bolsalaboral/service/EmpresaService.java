@@ -22,5 +22,9 @@ public class EmpresaService {
 		empresa.setContrasena(contrasenaCodificada);
 		return repositorio.save(empresa); 
 	}
+
+	public long contarEmpresas() {
+		return repositorio.count();
+	}
 	
 }

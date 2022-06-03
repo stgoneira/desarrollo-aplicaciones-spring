@@ -12,9 +12,12 @@
 	
 	<form data-th-action="@{/aviso/crear}" method="post" data-th-object="${aviso}">
 		Titulo: <input type="text" data-th-field="*{titulo}" /> <br />
+		<span class="text-danger" data-th-errors="*{titulo}" /><br />
+		
 		Descripción: <br /> 
 		<textarea data-th-field="*{descripcion}" rows="10" cols="25"></textarea>
 		<br />
+		<span class="text-danger" data-th-errors="*{descripcion}" /><br />
 		
 		<button type="submit">Publicar</button>
 	</form>

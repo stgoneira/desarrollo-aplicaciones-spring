@@ -13,7 +13,7 @@
 <body>
 
 	<div data-th-fragment="menu">
-		<nav class="navbar navbar-expand-lg bg-light">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-success mb-5">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Bolsa Laboral</a>
 				<button class="navbar-toggler" type="button"
@@ -37,6 +37,10 @@
 							<a class="nav-link" data-th-href="@{/aviso/crear}">Publica un Aviso</a>
 						</li>
 					</ul>
+					
+					Bienvenido <span data-sec-authentication="name" /> 
+					<a class="text-white" data-sec-authorize="isAuthenticated()" data-th-href="@{/salir}">(Salir)</a>
+					
 					<form class="d-flex" role="search">
 						<input class="form-control me-2" type="search"
 							placeholder="Search" aria-label="Search">
