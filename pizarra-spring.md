@@ -59,6 +59,23 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+### Sesión - 21 de 23 - Jueves 02 de Junio 
+
+BREAK 20:07 a 20:22hrs 
+
+Objetivos del día 
+------------------
+- Construir esqueleto de aplicación que tiene 2 o más entidades que necesitan autenticarse 
+
+/salir
+
+/ingreso - login form 
+/ - Listado de avisos 
+/empresa/registro 
+/postulante/registro 
+/empresa/panel - panel privado de la empresa 
+/postulante/panel - panel privado postulante  
+
 ### Sesión - 20 de 23 - Miércoles 01 de Junio 
 
 BREAK de 20:00 a 20:15hrs

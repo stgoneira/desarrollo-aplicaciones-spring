@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Ingreso</title>
+</head>
+<body>
+
+	<div data-th-if="${param.error}" style="color: red; background:black;padding: 10px;">
+		Usuario y/o contraseña incorrectos!!!.
+	</div>
+	
+	<form data-th-action="@{/ingreso}" method="post">
+		Usuario: <input type="text" name="username" />
+		Contraseña: <input type="password" name="password" />
+		<button type="submit">Ingresar</button>
+	</form>
+
+</body>
+</html>
