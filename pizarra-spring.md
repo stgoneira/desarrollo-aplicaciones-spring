@@ -59,6 +59,48 @@ Trabajo Final (31 Mayo) - Mantenedor Biblioteca
 
 ## SESIONES 
 
+Planificación 
+--------------
+
+1) Cargar datos iniciales 
+2) Registro de estudiantes 
+3) CRUD Cursos 
+4) Autenticación 
+5) Autorización CRUD Admin - Cursos 
+6) Autorización - Postulación Cursos 
+7) Panel postulación postulante 
+8) Panel admin postulaciones 
+9) Validación cupos 
+10) Deploy en Heroku 
+
+
+
+-------------------------------------------------
+
+
+
+BREAK 10:53 hasta 11:08hrs 
+
+### Sesión - 23 de 23 - Sábado 04 de Junio 
+
+- Avances en trabajos y resolución de problemas 
+
+### Sesión - 22 de 23 - Viernes 03 de Junio 
+
+BREAK 20:05 a 20:20hrs
+
+- Desarrollo de caso Bolsa Laboral (Chile Trabajos) 
+
+Actividad - Spring Security 
+-----------------------------
+1) Reconocer principales componentes de Spring Security 
+
+2) Generar clase que implementa la interfaz UserDetailsService 
+
+3) Generar clase que implementa la interfaz UserDetails 
+
+4) Configurar los permisos en Archivo de Configuración, con Anotaciones, con condicionales o con Thymeleaf 
+
 ### Sesión - 21 de 23 - Jueves 02 de Junio 
 
 BREAK 20:07 a 20:22hrs 

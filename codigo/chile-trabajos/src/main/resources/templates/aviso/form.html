@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Publicar Aviso</title>
+</head>
+<body>
+
+	<div data-th-replace="parts/header :: menu"></div>
+	
+	<h1>Publicar Aviso</h1>
+
+	<form 
+		data-th-action="@{/aviso/crear}" 
+		data-th-object="${aviso}" 
+		method="post"
+	>
+		Título: <input type="text" data-th-field="*{titulo}" /> <br />
+		<span 
+			data-th-if="${#fields.hasErrors('titulo')}" 
+			data-th-errors="*{titulo}"
+			style="color:red;" 
+		/>
+		<br />
+		
+		Descripción: <br /> 
+		<textarea data-th-field="*{descripcion}" rows="10" cols="10">
+		</textarea><br />
+		<span 
+			data-th-if="${#fields.hasErrors('descripcion')}" 
+			data-th-errors="*{descripcion}"
+			style="color:red;" 
+		/>
+		<br />
+		
+		<button type="submit">Publicar</button>
+	</form>
+
+</body>
+</html>
