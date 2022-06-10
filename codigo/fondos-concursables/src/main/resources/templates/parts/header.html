@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<div data-th-fragment="menu">
+		<ul>
+			<li><a data-th-href="@{/}">Inicio</a></li>
+		</ul>
+		<span data-sec-authentication="name" />
+		<span 
+			data-sec-authorize="isAuthenticated()" 
+			data-sec-authentication="principal.authorities" 
+		/>
+	</div>
+
+</body>
+</html>

@@ -21,7 +21,7 @@ public class Empresa {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	@Column(nullable = false, unique = false)
+	@Column(nullable = false, unique = true)
 	private String rut;
 	@Column(nullable = false)
 	private String razonSocial;

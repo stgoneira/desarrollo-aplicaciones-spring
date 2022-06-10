@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import cl.aiep.fondosconcursables.modelo.Concurso;
+import cl.aiep.fondosconcursables.modelo.Empresa;
+import cl.aiep.fondosconcursables.modelo.Postulacion;
 import cl.aiep.fondosconcursables.repositorio.ConcursoRepository;
 import cl.aiep.fondosconcursables.repositorio.PostulacionRepository;
+import cl.aiep.fondosconcursables.seguridad.Usuario;
 
 @Controller
 public class PostulacionController {
@@ -24,9 +27,10 @@ public class PostulacionController {
 	@PostMapping("/postulacion/{id}")
 	public String postulacion(
 			@PathVariable("id") Concurso concurso
-			, Authentication autenticacion
+			, Authentication usuarioAutenticado
 			, Model modelo
 	) {
+		/*
 		// Con esto puedo saber quién está postulando 
 		(MyUserDetails) autenticacion.getPrincipal();
 		
@@ -46,8 +50,20 @@ public class PostulacionController {
 		// 3. Decrementar los cupos disponibles para postulación
 		int disponibles = concurso.getPostulacionesDisponibles() - 1;
 		concurso.setPostulacionesDisponibles( disponibles );
-		concursoRepository.save( concurso ); 
-		return "xxxx";
+		concursoRepository.save( concurso );
+		*/
+		
+		// TODO: FALTAN VALIDACIONES 
+		Usuario usuario = (Usuario) usuarioAutenticado.getPrincipal();
+		Empresa empresa = usuario.getEmpresa();
+		Postulacion postulacion = Postulacion.builder()
+									.empresa(empresa)
+									.concurso(concurso)
+									.build()
+		;
+		postulacionRepository.save(postulacion);
+		return "redirect:/empresa/dashboard";
+		
 	}
 	
 }

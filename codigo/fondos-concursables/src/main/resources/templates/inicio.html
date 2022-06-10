@@ -6,14 +6,20 @@
 </head>
 <body>
 
+	<div data-th-replace="parts/header :: menu"></div>
+
 	<div class="row">
 		<div class="col" data-th-each="concurso : ${concursos}">
 			<h2 data-th-text="${concurso.titulo}"></h2>
 			<p data-th-text="${concurso.descripcion}"></p>
 			<a href="#">Ver Detalles</a>
 			
-			<form data-th-if="${concurso.postulacionesDisponibles > 0}">
-				<button>Postular</button>
+			<form
+				method="post"
+				data-th-action="@{/postulacion/{id}(id=${concurso.id})}" 
+				data-th-if="${concurso.postulacionesDisponibles > 0}"
+			>
+				<button type="submit">Postular</button>
 			</form>
 		</div>
 	</div>
