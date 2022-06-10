@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+</head>
+<body>
+	<h1>Concurso XXXX - 15</h1>
+	
+	
+	<div data-th-if="${error}">
+		<span class="text-alert" data-th-text="${error}" />
+	</div>
+	
+	<form data-th-action="@{/postulacion/15}">
+		<input type="hidden"  />	
+		<button class="btn btn-primary" type="submit">Postular</button>
+	</form>
+</body>
+</html>

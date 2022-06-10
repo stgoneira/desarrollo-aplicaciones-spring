@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div class="row">
+		<div class="col" data-th-each="concurso : ${concursos}">
+			<h2 data-th-text="${concurso.titulo}"></h2>
+			<p data-th-text="${concurso.descripcion}"></p>
+			<a href="#">Ver Detalles</a>
+			
+			<form data-th-if="${concurso.postulacionesDisponibles > 0}">
+				<button>Postular</button>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

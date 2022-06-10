@@ -74,6 +74,15 @@ Planificación
 10) Deploy en Heroku 
 
 
+Notas
+-------
+
+// ejemplo Controller 
+
+@GetMapping("/ruta") // define la ruta que debes escribir en el Browser 
+public String miRuta() { // el método se pueda llamar como tú quieras 
+	return "archivo-html"; 
+}
 
 -------------------------------------------------
 
