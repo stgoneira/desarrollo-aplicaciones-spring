@@ -1,20 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+<head data-th-fragment="header(titulo, estilos)">
+	<meta charset="UTF-8" />
+	<title data-th-replace="${titulo}">Insert title here</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" /> 
+  	<!--/*/ <th:block th:replace="${estilos}" /> /*/-->
 </head>
 <body>
 
 	<div data-th-fragment="menu">
-		<ul>
-			<li><a data-th-href="@{/}">Inicio</a></li>
-		</ul>
-		<span data-sec-authentication="name" />
-		<span 
-			data-sec-authorize="isAuthenticated()" 
-			data-sec-authentication="principal.authorities" 
-		/>
+		<div class="logo my-3 ms-5 text-center text-lg-start">
+			<a class="" href="#" data-th-href="@{/}">
+				<img data-th-src="@{/img/logo.png}" src="#" alt="Logo" />
+			</a>
+		</div>
+		
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  			<div class="container-fluid">    			
+    			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      				<span class="navbar-toggler-icon"></span>
+    			</button>
+    			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+      				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5">
+        				<li class="nav-item">
+          					<a class="nav-link" data-th-href="@{/}" href="#">Inicio</a>
+        				</li>
+        				<li class="nav-item">
+							<a class="nav-link" data-th-ref="@{/ingreso}" href="#">Iniciar Sesión</a>
+				        </li>
+				        <li class="nav-item">
+							<a class="nav-link" data-th-href="@{/empresa/registro}" href="#">Registrarse</a>
+				        </li>
+						<li class="nav-item">
+							<a class="nav-link" data-th-ref="@{/empresa/postulaciones}" href="#">Mis Postulaciones</a>
+				        </li>
+      				</ul>
+      				
+      				<div class="usuario-autenticado text-white me-5">
+	      				Bienvenido <span data-sec-authentication="name" data-sec-authorize="isAuthenticated()"></span>
+	      				<span data-sec-authorize="!isAuthenticated()">Anónimo</span>
+						<span 
+							data-sec-authorize="isAuthenticated()" 
+							data-sec-authentication="principal.authorities" 
+						></span>
+					</div>
+      				
+					<form class="d-flex" role="search">
+        				<input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Buscar" />
+        				<button class="btn btn-outline-primary" type="submit">Buscar</button>
+      				</form>
+    			</div>
+  			</div>
+		</nav>	
+	</div>
+
+	<div data-th-fragment="scripts" data-th-remove="tag">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 	</div>
 
 </body>

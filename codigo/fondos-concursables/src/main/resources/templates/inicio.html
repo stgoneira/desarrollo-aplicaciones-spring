@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<head data-th-replace="parts/header :: header(~{::title}, _)">
+	<meta charset="UTF-8" />
+	<title>Fondos Concursables 2022</title>
 </head>
 <body>
 
 	<div data-th-replace="parts/header :: menu"></div>
 
-	<div class="row">
-		<div class="col" data-th-each="concurso : ${concursos}">
-			<h2 data-th-text="${concurso.titulo}"></h2>
-			<p data-th-text="${concurso.descripcion}"></p>
-			<a href="#">Ver Detalles</a>
-			
-			<form
-				method="post"
-				data-th-action="@{/postulacion/{id}(id=${concurso.id})}" 
-				data-th-if="${concurso.postulacionesDisponibles > 0}"
+	<div class="container">
+		<div class="row pt-5">
+			<div 
+				class="col-xs-12 col-lg-4 text-center text-lg-start py-3" 
+				data-th-each="concurso : ${concursos}"
 			>
-				<button type="submit">Postular</button>
-			</form>
+				<h2 data-th-text="${concurso.titulo}" class="text-center"></h2>
+				<p data-th-text="${concurso.descripcion}" class="text-center"></p>
+					
+				<div class="botones text-center ms-3">			
+					<form
+						method="post"
+						data-th-action="@{/postulacion/{id}(id=${concurso.id})}" 
+						data-th-if="${concurso.postulacionesDisponibles > 0}"
+					>
+						<button class="btn btn-primary" type="submit">Postular</button>					
+					</form>
+					<a data-th-href="@{/concurso/{id}(id=${concurso.id})}" href="#">Ver Detalles</a>
+				</div><!-- div.botones -->
+			</div>
 		</div>
-	</div>
+	</div><!--  end div.container -->
 
+	<div data-th-replace="parts/header :: scripts"></div>
 </body>
 </html>

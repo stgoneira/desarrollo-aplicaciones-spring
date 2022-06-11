@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<div data-th-if="param.error">
+		Usuario y/o contraseña incorrecto(s)!!!
+	</div>
+
+	<form method="post" data-th-action="@{/ingreso}">
+		<input type="text" name="username" />
+		<input type="password" name="password" />
+		<button type="submit">Ingresar</button>
+	</form>
+
+</body>
+</html>

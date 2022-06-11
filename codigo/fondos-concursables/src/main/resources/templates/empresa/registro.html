@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="parts/header :: header(~{::title}, _)">
+	<meta charset="UTF-8" />
+	<title>Registro - Fondos Concursables 2022</title>
+</head>
+<body>
+
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<div class="container pt-5">
+		<h1 class="mb-4">Registro</h1>
+		<form 
+			data-th-action="@{/empresa/registro}"
+			data-th-object="${empresa}"  
+			method="post" 
+			action="#"
+			class="needs-validation"
+			novalidate="novalidate"
+		>
+
+			<div class="mb-3">
+				<label for="inputRut" class="form-label">RUT</label>
+				<input 
+					data-th-field="*{rut}" 
+					type="text" 
+					data-th-class="${#fields.hasErrors('rut')?'form-control is-invalid':'form-control'}" 
+					id="inputRut"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('rut')}" data-th-errors="*{rut}">
+        			Error
+      			</div>				
+			</div>
+			<div class="mb-3">
+				<label for="inputRazonSocial" class="form-label">Razón Social</label>
+				<input 
+					data-th-field="*{razonSocial}" 
+					type="text" 
+					data-th-class="${#fields.hasErrors('razonSocial')?'form-control is-invalid':'form-control'}" 
+					id="inputRazonSocial" 
+				/>
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('razonSocial')}" data-th-errors="*{razonSocial}">
+        			Error
+      			</div>
+			</div>
+			<div class="mb-3">
+				<label for="inputEmail" class="form-label">Email</label>
+				<input 
+					data-th-field="*{email}" 
+					type="email" 
+					data-th-class="${#fields.hasErrors('email')?'form-control is-invalid':'form-control'}" 
+					id="inputEmail" 
+				/>
+			</div>
+			<div class="mb-3">
+				 <label for="inputPassword" class="form-label">Password</label>
+				 <input 
+				 	data-th-field="*{contrasena}" 
+				 	type="password" 
+				 	data-th-class="${#fields.hasErrors('rut')?'form-control is-invalid':'form-control'}" 
+				 	id="inputPassword" 
+				 />
+			</div>
+						
+			<button type="submit" class="btn btn-primary">Registrar</button>
+		</form>
+	</div><!-- END div.container -->
+
+	<div data-th-replace="parts/header :: scripts"></div>
+</body>
+</html>
