@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="parts/header :: header(~{::title}, _)">
+	<meta charset="UTF-8" />
+	<title>Concursos | Administración</title>
+</head>
+<body>
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<div class="container">
+		<h1 class="pt-5">Concurso</h1>
+				
+		<form
+			data-th-action="@{/admin/concurso}"
+			data-th-object="${concurso}"  
+			method="post" 
+			action="#"
+			class="needs-validation"
+			novalidate="novalidate"
+		>
+		
+			<div
+				data-th-each="err : ${#fields.errors('global')}"
+				data-th-text="${err}" 
+				class="alert alert-danger" role="alert"
+			>
+			</div>
+		
+			<div class="mb-3">
+				<label for="inputTitulo" class="form-label">Título</label>
+				<input 
+					data-th-field="*{titulo}" 
+					type="text" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputTitulo"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('titulo')}" data-th-errors="*{titulo}">
+        			Error
+      			</div>				
+			</div>
+			<div class="mb-3">
+				<label for="inputDescripcion" class="form-label">Descripción</label>
+				<textarea 
+					rows="10" 
+					cols="10"
+					data-th-field="*{descripcion}"
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputDescripcion"
+				>
+				
+				</textarea>					
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('descripcion')}" data-th-errors="*{descripcion}">
+        			Error
+      			</div>				
+			</div>
+			
+			<div class="mb-3">
+				<label for="inputTitulo" class="form-label">Cupos Iniciales</label>
+				<input 
+					data-th-field="*{cupos}" 
+					type="number" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputCupos"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('cupos')}" data-th-errors="*{cupos}">
+        			Error
+      			</div>				
+			</div>
+			
+			<div class="mb-3">
+				<label for="inputMonto" class="form-label">Monto</label>
+				<input 
+					data-th-field="*{monto}" 
+					type="number" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputMonto"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('monto')}" data-th-errors="*{monto}">
+        			Error
+      			</div>				
+			</div>
+			
+			<div class="mb-3">
+				<label for="inputPostulacionesPermitidas" class="form-label">Máximo de Postulaciones</label>
+				<input 
+					data-th-field="*{postulacionesPermitidas}" 
+					type="number" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputPostulacionesPermitidas"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('postulacionesPermitidas')}" data-th-errors="*{postulacionesPermitidas}">
+        			Error
+      			</div>				
+			</div>
+			
+			<div class="mb-3">
+				<label for="inputPostulacionesDisponibles" class="form-label">Postulaciones Disponibles</label>
+				<input 
+					data-th-field="*{postulacionesDisponibles}" 
+					type="number" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputPostulacionesDisponibles"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('postulacionesDisponibles')}" data-th-errors="*{postulacionesDisponibles}">
+        			Error
+      			</div>				
+			</div>
+			
+			<div class="mb-3">
+				<label for="inputPostulacionesFechaInicio" class="form-label">Fecha Inicio Postulaciones</label>
+				<input 
+					data-th-field="*{postulacionesFechaInicio}" 
+					type="date" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputPostulacionesFechaInicio"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('postulacionesFechaInicio')}" data-th-errors="*{postulacionesFechaInicio}">
+        			Error
+      			</div>				
+			</div>
+			
+			<div class="mb-3">
+				<label for="inputPostulacionesFechaTermino" class="form-label">Fecha Término Postulaciones</label>
+				<input 
+					data-th-field="*{postulacionesFechaTermino}" 
+					type="date" 
+					class="form-control"
+					data-th-errorclass="is-invalid" 
+					id="inputPostulacionesFechaTermino"
+				/>				
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('postulacionesFechaTermino')}" data-th-errors="*{postulacionesFechaTermino}">
+        			Error
+      			</div>
+			</div>
+			
+			<button class="btn btn-primary" type="submit">Guardar</button>
+		</form>
+				
+	</div>	
+
+	<div data-th-replace="parts/header :: scripts"></div>
+</body>
+</html>

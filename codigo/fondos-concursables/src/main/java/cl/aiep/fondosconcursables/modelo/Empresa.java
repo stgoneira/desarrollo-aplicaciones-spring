@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import cl.aiep.fondosconcursables.validacion.Rut;
@@ -29,8 +31,11 @@ public class Empresa {
 	@Size(min = 3, max = 100)
 	@Column(nullable = false)
 	private String razonSocial;
+	@Email
+	@NotBlank
 	@Column(nullable = false)
 	private String email;
+	@Size(min = 3, max = 100)
 	@Column(nullable = false)
 	private String contrasena;
 }

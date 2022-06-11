@@ -8,14 +8,15 @@ import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
 
-@Target({ElementType.METHOD, ElementType.FIELD})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = RutValidator.class)
-public @interface Rut {
+@Constraint(validatedBy = FechaInicioTerminoValidator.class)
+public @interface FechaInicioTermino {
 
-	String message() default "RUT incorrecto";
+	String message() default "La fecha de inicio debe ser anterior a la fecha de término";
 	
 	Class<?>[] groups() default {};
 	
 	Class<? extends Payload>[] payload() default {};
+	
 }

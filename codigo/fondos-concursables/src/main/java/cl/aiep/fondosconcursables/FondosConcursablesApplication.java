@@ -8,9 +8,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import cl.aiep.fondosconcursables.modelo.Administrador;
 import cl.aiep.fondosconcursables.modelo.Concurso;
 import cl.aiep.fondosconcursables.modelo.Empresa;
 import cl.aiep.fondosconcursables.repositorio.ConcursoRepository;
+import cl.aiep.fondosconcursables.servicio.AdministradorService;
 import cl.aiep.fondosconcursables.servicio.EmpresaService;
 
 @SpringBootApplication
@@ -22,6 +24,9 @@ public class FondosConcursablesApplication {
 	@Autowired 
 	EmpresaService empresaService;
 	
+	@Autowired
+	AdministradorService administradorService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(FondosConcursablesApplication.class, args);
 	}
@@ -30,11 +35,19 @@ public class FondosConcursablesApplication {
 	public CommandLineRunner datosIniciales() {
 		return (args) -> {
 			if( concursoRepository.count() == 0) {
+				Administrador admin = Administrador.builder()
+											.usuario("admin")
+											.contrasena("1234")
+											.build()
+				;
+				administradorService.crearAdministrador(admin);
+				// ------------------------------------
+				
 				Empresa empresa = Empresa.builder()
 						.rut("12345678-5")
 						.razonSocial("Prueba SA") 
 						.email("contacto@prueba.cl")
-						.contrasena("4321")
+						.contrasena("1234")
 						.build()
 				;
 				empresaService.crearEmpresa(empresa);
@@ -43,7 +56,7 @@ public class FondosConcursablesApplication {
 						.rut("78827280-4")
 						.razonSocial("Vendeya SpA.") 
 						.email("contacto@vendeya.cl")
-						.contrasena("1234")
+						.contrasena("4321")
 						.build()
 				;
 				

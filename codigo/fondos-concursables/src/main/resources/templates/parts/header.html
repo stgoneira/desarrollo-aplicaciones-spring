@@ -24,15 +24,21 @@
       				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-5">
         				<li class="nav-item">
           					<a class="nav-link" data-th-href="@{/}" href="#">Inicio</a>
-        				</li>
-        				<li class="nav-item">
-							<a class="nav-link" data-th-ref="@{/ingreso}" href="#">Iniciar Sesión</a>
-				        </li>
+        				</li>        				
 				        <li class="nav-item">
 							<a class="nav-link" data-th-href="@{/empresa/registro}" href="#">Registrarse</a>
 				        </li>
 						<li class="nav-item">
-							<a class="nav-link" data-th-ref="@{/empresa/postulaciones}" href="#">Mis Postulaciones</a>
+							<a class="nav-link" data-th-href="@{/empresa/dashboard}" href="#">Mis Postulaciones</a>
+				        </li>
+				        <li class="nav-item">
+							<a class="nav-link" data-th-href="@{/admin/concurso}" href="#">Crear Concurso</a>
+				        </li>
+				        <li class="nav-item" data-sec-authorize="!isAuthenticated()">
+							<a class="nav-link" data-th-href="@{/ingreso}" href="#">Iniciar Sesión</a>
+				        </li>
+				        <li class="nav-item" data-sec-authorize="isAuthenticated()">
+							<a class="nav-link" data-th-href="@{/salir}" href="#">Cerrar Sesión</a>
 				        </li>
       				</ul>
       				
@@ -45,8 +51,13 @@
 						></span>
 					</div>
       				
-					<form class="d-flex" role="search">
-        				<input class="form-control me-2" type="text" placeholder="Buscar" aria-label="Buscar" />
+					<form
+						data-th-action="@{/}"
+						method="get" 
+						class="d-flex" 
+						role="search"
+					>
+        				<input name="q" class="form-control me-2" type="text" placeholder="Buscar" aria-label="Buscar" />
         				<button class="btn btn-outline-primary" type="submit">Buscar</button>
       				</form>
     			</div>

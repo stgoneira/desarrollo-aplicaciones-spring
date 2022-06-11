@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="parts/header :: header(~{::title}, _)">
+	<meta charset="UTF-8" />
+	<title>Concursos | Administración</title>
+</head>
+<body>
+	<div data-th-replace="parts/header :: menu"></div>
+
+	<div class="container pt-5">
+		<h1>Concurso</h1>
+		
+		<p data-th-text="${concurso.descripcion}"></p>
+		
+		<p>
+		Cupos Disponibles: <span data-th-text="${concurso.postulacionesDisponibles}"></span>
+		</p>
+		
+		<h2>Fechas Postulaciones</h2>
+		<p>
+		Inicio: <span data-th-text="${concurso.postulacionesFechaInicio}"></span>
+		</p>
+		<p>
+		Término: <span data-th-text="${concurso.postulacionesFechaTermino}"></span>
+		</p>
+		
+		<form
+			method="post"
+			data-th-action="@{/postulacion/{id}(id=${concurso.id})}" 
+			data-th-if="${concurso.postulacionesDisponibles > 0}"
+		>
+			<button class="btn btn-primary" type="submit">Postular</button>					
+		</form>
+	</div><!-- END div.container -->
+
+	<div data-th-replace="parts/header :: scripts"></div>
+</body>
+</html>

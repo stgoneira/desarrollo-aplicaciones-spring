@@ -2,6 +2,7 @@ package cl.aiep.fondosconcursables.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+@EnableGlobalMethodSecurity(
+	prePostEnabled = true,
+	securedEnabled = true,
+	jsr250Enabled = true
+)
 @Configuration
 public class ConfiguracionSeguridad {
 
@@ -39,7 +45,7 @@ public class ConfiguracionSeguridad {
 	@Bean
 	public WebSecurityCustomizer customizer() {
 		return (web) -> web 
-						.ignoring().mvcMatchers("/img/**", "/css/**", "/js/**") 
+						.ignoring().mvcMatchers("/favicon.ico", "/img/**", "/css/**", "/js/**") 
 		;
 	}
 }

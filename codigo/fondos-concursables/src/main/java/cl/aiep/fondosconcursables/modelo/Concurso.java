@@ -8,7 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import cl.aiep.fondosconcursables.validacion.FechaInicioTermino;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +21,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@FechaInicioTermino
 @Entity
 public class Concurso {
 
@@ -30,15 +34,17 @@ public class Concurso {
 	 */
 	@Min(1)
 	private int cupos;
-	
+	@NotBlank
 	@Column(nullable = false)
 	private String titulo;
+	@NotBlank
 	@Column(nullable = false)
 	private String descripcion;
 	/**
 	 * Monto que se adjudican las empresas 
 	 * que reciben el beneficio 
 	 */
+	@NotNull
 	@Min(1)
 	@Column(nullable = false)
 	private Long monto;
@@ -55,8 +61,10 @@ public class Concurso {
 	@Min(0)
 	@Column(nullable = false)
 	private int postulacionesDisponibles;
+	@NotNull
 	@Column(nullable = false)
 	private LocalDate postulacionesFechaInicio;
+	@NotNull
 	@Column(nullable = false)
 	private LocalDate postulacionesFechaTermino;
 	

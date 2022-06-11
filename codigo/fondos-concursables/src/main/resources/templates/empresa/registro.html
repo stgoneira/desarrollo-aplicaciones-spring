@@ -51,6 +51,9 @@
 					data-th-class="${#fields.hasErrors('email')?'form-control is-invalid':'form-control'}" 
 					id="inputEmail" 
 				/>
+				<div class="invalid-feedback" data-th-if="${#fields.hasErrors('email')}" data-th-errors="*{email}">
+        			Error
+      			</div>
 			</div>
 			<div class="mb-3">
 				 <label for="inputPassword" class="form-label">Password</label>
@@ -60,6 +63,9 @@
 				 	data-th-class="${#fields.hasErrors('rut')?'form-control is-invalid':'form-control'}" 
 				 	id="inputPassword" 
 				 />
+				 <div class="invalid-feedback" data-th-if="${#fields.hasErrors('contrasena')}" data-th-errors="*{contrasena}">
+        			Error
+      			</div>
 			</div>
 						
 			<button type="submit" class="btn btn-primary">Registrar</button>
